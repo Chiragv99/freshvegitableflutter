@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../../routes/app_routes.dart';
 
 class IntroductionController extends GetxController {
 
@@ -10,15 +14,19 @@ class IntroductionController extends GetxController {
 
   IntroductionController({required this.getStorage});
 
-  int pageCount = 0;
+  RxInt pageCount = 0.obs;
 
   @override
   void onInit() {
     super.onInit();
-
   }
 
   setPageCount(int aPageCount) {
-    pageCount = aPageCount;
+    pageCount.value = aPageCount;
   }
+
+  redirectToNextPage(){
+    Get.offAndToNamed(Routes.mapscreen);
+  }
+
 }

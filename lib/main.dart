@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:onlineshoppingsample/AppBinding.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
       ),
       getPages: Routes.routes,
       initialRoute: Routes.INITIAL,
+      onInit: (){
+        ScreenUtil.init(context);
+      },
       initialBinding: AppBinding(),
     );
   }
