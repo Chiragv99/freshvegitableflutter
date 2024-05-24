@@ -7,17 +7,16 @@ import '../uttils/screen_utils.dart';
 class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ScreenUtils().init(context);
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/landing.png'), fit: BoxFit.cover)),
           child: Column(
             children: [
-              Spacer(),
-              Padding(padding: EdgeInsets.only(bottom: 30),child:  IntroWidget(),),
+              const Spacer(),
+              Padding(padding: const EdgeInsets.only(bottom: 30),child:  IntroWidget(),),
             ],
           )
         )
@@ -30,10 +29,8 @@ class IntroWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(
-          20,
-        ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,14 +42,14 @@ class IntroWidget extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height:  getProportionateScreenHeight(30)),
+          const SizedBox(height:  30),
           Text(
             'We have more than 10,000+ food available for all of you.',
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
               color: kTextColorAccent,
             ),
           ),
-          SizedBox(height: getProportionateScreenHeight(40)),
+          const SizedBox(height: 40),
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushNamed(IntroScreen.routeName);

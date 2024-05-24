@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:onlineshoppingsample/constants/colors.dart';
+import 'package:onlineshoppingsample/screens/address/add_address.dart';
 import 'package:onlineshoppingsample/uttils/screen_utils.dart';
 import 'package:onlineshoppingsample/widget/back_button_Is.dart';
 
@@ -138,7 +139,9 @@ class BottomMapCard extends StatelessWidget{
                    SizedBox(
                      height: getProportionateScreenHeight(5),
                    ),
-                   ElevatedButton(onPressed: () {}, child: const Text('Add Address'))
+                   ElevatedButton(onPressed: () {
+                     Navigator.of(context).pushNamed(AddAddressScreen.routeName);
+                   }, child: const Text('Add Address'))
                  ],
                ),
              ),

@@ -1,38 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshoppingsample/screens/intro_screen.dart';
-import 'package:onlineshoppingsample/screens/landing_screen.dart';
-import 'package:onlineshoppingsample/screens/login_page.dart';
-import 'package:onlineshoppingsample/screens/map_screen.dart';
-import 'package:onlineshoppingsample/uttils/custom_theme.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:onlineshoppingsample/AppBinding.dart';
 
-void main() {
+import 'routes/app_routes.dart';
+
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final customTheme = CustomTheme(constraints);
-      return MaterialApp(
-        title: 'Series',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-          textTheme: customTheme.nunito(),
-          elevatedButtonTheme: customTheme.elevatedButtonTheme(),
-          outlinedButtonTheme: customTheme.outlinedButtonTheme()
-        ),
-        home: LandingScreen(),
-        routes: {
-          IntroScreen.routeName: (ctx) => IntroScreen(),
-          LoginPage.routeName: (ctx) => LoginPage(),
-          MapScreen.routeName: (ctx) => MapScreen()
-
-        },
-      );
-    });
+    return  GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Online Shopping',
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
+      getPages: Routes.routes,
+      initialRoute: Routes.INITIAL,
+      initialBinding: AppBinding(),
+    );
   }
 }
