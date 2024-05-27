@@ -28,7 +28,7 @@ class AddressMap extends GetView<AddressController>{
                         fontWeight: FontWeight.w600
                     ),),
                   SizedBox(
-                    width: getProportionateScreenWidth(32),
+                    width: ScreenUtil().setSp(20),
                   )
                 ],
               ),
@@ -44,7 +44,7 @@ class AddressMap extends GetView<AddressController>{
                       right: 0,
                       child:
                       Image.asset('assets/images/curLoc.png',)),
-                  BottomMapCard(),
+                    BottomMapCard(),
                 ],
               ))
             ],

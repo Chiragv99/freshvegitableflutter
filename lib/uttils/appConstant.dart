@@ -66,10 +66,5 @@ static var updateRouteStatusReadyToGo = 1 ;
  static var updateRouteStatusCompletedTrip = 3 ;
 
 
- // Socket Connection
- static  String signalRBaseUrl = "http://192.168.1.8:2018/";
- static  String MapApiKey = "AIzaSyAcKacVPrecvkVNJXcIIz2RQHnhFsM1KYk";
-
-
 
 }

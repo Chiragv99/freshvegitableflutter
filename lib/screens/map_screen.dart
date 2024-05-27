@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlineshoppingsample/constants/colors.dart';
-import 'package:onlineshoppingsample/screens/address/add_address.dart';
 import 'package:onlineshoppingsample/uttils/screen_utils.dart';
 import 'package:onlineshoppingsample/widget/back_button_Is.dart';
 
+import '../uttils/theme_color.dart';
+import '../widget/common_widget.dart';
 import '../widget/custom_text_field.dart';
+import '../widget/round_button.dart';
 
 class MapScreen extends StatelessWidget{
   static const routeName = '/map_screen';
@@ -24,11 +27,11 @@ class MapScreen extends StatelessWidget{
                   BackButtonLS(),
                   Text('Choose Your Address',
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(17),
+                        fontSize: ScreenUtil().setSp(14),
                         fontWeight: FontWeight.w600
                     ),),
                   SizedBox(
-                    width: getProportionateScreenWidth(32),
+                    width: ScreenUtil().setSp(32),
                   )
                 ],
               ),
@@ -66,82 +69,75 @@ class BottomMapCard extends StatelessWidget{
          crossAxisAlignment:  CrossAxisAlignment.end,
          children: [
            Padding(padding: EdgeInsets.symmetric(
-             horizontal: getProportionateScreenWidth(20),
+             horizontal:  ScreenUtil().setSp(20),
            ),
            child: SizedBox(
-             width: getProportionateScreenWidth(56),
-             height: getProportionateScreenWidth(56),
+             width: ScreenUtil().setSp(30),
+             height: ScreenUtil().setSp(30),
              child: FloatingActionButton(
                onPressed: () {},
                backgroundColor: kPrimaryGreen,
                child: Icon(
                  Icons.gps_fixed,
-                 size: getProportionateScreenWidth(32),
+                 size: ScreenUtil().setSp(20),
                ),
              ),
            ),),
            SizedBox(
-             height: getProportionateScreenHeight(10),
+             height:ScreenUtil().setSp(10),
            ),
            Container(
              decoration: BoxDecoration(
                color: Colors.white,
                borderRadius: BorderRadius.only(
                  topLeft: Radius.circular(
-                   getProportionateScreenWidth(8),
+                   ScreenUtil().setSp(8),
                  ),
                  topRight: Radius.circular(
-                   getProportionateScreenWidth(8)
+                     ScreenUtil().setSp(8)
                  )
                )
              ),
              child: Padding(
-               padding: EdgeInsets.all(getProportionateScreenWidth(20)),
+               padding: EdgeInsets.all(ScreenUtil().setSp(20)),
                child: Column(
                  mainAxisSize: MainAxisSize.min,
                  crossAxisAlignment: CrossAxisAlignment.stretch,
                  children: [
                    Row(
                      children: [
-                       Text('Planet Namex 989',
-                       style: Theme.of(context).textTheme.headline3!.copyWith(
-                         fontWeight: FontWeight.w700
-                       ),),
+                       labelTextRegular('Planet Namex 989', ScreenUtil().setSp(6), ThemeColor.darkTextColor),
                        Spacer(),
                        Icon(Icons.search,
-                       size: getProportionateScreenWidth(32),)
+                       size: ScreenUtil().setSp(15),)
                      ],
                    ),
                    SizedBox(
-                     height: getProportionateScreenHeight(10),
+                     height: ScreenUtil().setSp(3),
                    ),
-                   Text(
-                     'Norristown, Pennsylvania, 19403',
-                     style: Theme.of(context).textTheme.headline4!.copyWith(
-                       color: kTextColorAccent,
-                     ),
-                   ),
+                   labelTextLight('Norristown, Pennsylvania, 19403',ScreenUtil().setSp(4),ThemeColor.lightTextColor),
                    SizedBox(
-                     height: getProportionateScreenHeight(10),
+                     height: ScreenUtil().setSp(10),
                    ),
                    const CustomTextField(
                      hint: 'Write down the building, apartment or office...',
                    ),
                    SizedBox(
-                     height: getProportionateScreenHeight(10),
+                     height: ScreenUtil().setSp(8),
                    ),
-                   Text(
-                     'Detail Address',
-                     style: Theme.of(context).textTheme.headline4!.copyWith(
-                       color: kTextColorAccent,
-                     ),
-                   ),
+                   labelTextLight('Detail Address',ScreenUtil().setSp(4),ThemeColor.lightTextColor),
                    SizedBox(
-                     height: getProportionateScreenHeight(5),
+                     height: ScreenUtil().setSp(5),
                    ),
-                   ElevatedButton(onPressed: () {
-                     Navigator.of(context).pushNamed(AddAddressScreen.routeName);
-                   }, child: const Text('Add Address'))
+                   RoundedButton(
+                     isEnable: true,
+                     text: 'Add Address',
+                     fontSize: 10,
+                     onTap: () {
+                     },
+                     width: ScreenUtil().setSp(100),
+                     height: ScreenUtil().setSp(30),
+                   ),
                  ],
                ),
              ),

@@ -11,9 +11,7 @@ class IntroductionController extends GetxController {
   // For Store Data
   GetStorage getStorage;
   final PageController _controller = PageController();
-
   IntroductionController({required this.getStorage});
-
   RxInt pageCount = 0.obs;
 
   @override

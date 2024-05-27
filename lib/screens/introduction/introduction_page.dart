@@ -17,7 +17,7 @@ class IntroductionPage extends GetView<IntroductionController>{
         child: Column(
           children: [
             IllustrationPageView(_controller, controller.setPageCount),
-            TextView(controller.pageCount.value),
+            TextView(controller.pageCount.value,controller),
           ],
         ),
       )
@@ -27,7 +27,9 @@ class IntroductionPage extends GetView<IntroductionController>{
 
 class TextView extends StatelessWidget {
   final int pageCount;
-   TextView(this.pageCount);
+  final IntroductionController controller;
+
+   TextView(this.pageCount, this.controller);
   @override
   Widget build(BuildContext context) {
     final List<Map<String, String>> data = [
@@ -63,7 +65,7 @@ class TextView extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               data[pageCount]['desc']!,
               textAlign: TextAlign.center,
@@ -92,6 +94,8 @@ class TextView extends StatelessWidget {
               text: 'Get Started',
               fontSize: 10,
               onTap: () {
+                print("GetStart"+ "GetStart");
+                controller.redirectToNextPage();
               },
               width: ScreenUtil().setSp(100),
               height: ScreenUtil().setSp(30),
@@ -148,7 +152,7 @@ class IllustrationPageView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(
@@ -164,12 +168,12 @@ class IllustrationPageView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Expanded(
@@ -191,7 +195,7 @@ class IllustrationPageView extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ],
