@@ -47,7 +47,7 @@ class MapScreen extends StatelessWidget{
                       right: 0,
                       child:
                       Image.asset('assets/images/curLoc.png',)),
-                  BottomMapCard(),
+                //  BottomMapCard(),
                 ],
               ))
             ],
@@ -55,97 +55,4 @@ class MapScreen extends StatelessWidget{
       ),
     );
   }
-}
-
-class BottomMapCard extends StatelessWidget{
-
-  @override
-  Widget build(BuildContext context) {
-   return  Align(
-     alignment: Alignment.bottomCenter,
-     child: SizedBox(
-       child:  Column(
-         mainAxisSize:  MainAxisSize.min,
-         crossAxisAlignment:  CrossAxisAlignment.end,
-         children: [
-           Padding(padding: EdgeInsets.symmetric(
-             horizontal:  ScreenUtil().setSp(20),
-           ),
-           child: SizedBox(
-             width: ScreenUtil().setSp(30),
-             height: ScreenUtil().setSp(30),
-             child: FloatingActionButton(
-               onPressed: () {},
-               backgroundColor: kPrimaryGreen,
-               child: Icon(
-                 Icons.gps_fixed,
-                 size: ScreenUtil().setSp(20),
-               ),
-             ),
-           ),),
-           SizedBox(
-             height:ScreenUtil().setSp(10),
-           ),
-           Container(
-             decoration: BoxDecoration(
-               color: Colors.white,
-               borderRadius: BorderRadius.only(
-                 topLeft: Radius.circular(
-                   ScreenUtil().setSp(8),
-                 ),
-                 topRight: Radius.circular(
-                     ScreenUtil().setSp(8)
-                 )
-               )
-             ),
-             child: Padding(
-               padding: EdgeInsets.all(ScreenUtil().setSp(20)),
-               child: Column(
-                 mainAxisSize: MainAxisSize.min,
-                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                 children: [
-                   Row(
-                     children: [
-                       labelTextRegular('Planet Namex 989', ScreenUtil().setSp(6), ThemeColor.darkTextColor),
-                       Spacer(),
-                       Icon(Icons.search,
-                       size: ScreenUtil().setSp(15),)
-                     ],
-                   ),
-                   SizedBox(
-                     height: ScreenUtil().setSp(3),
-                   ),
-                   labelTextLight('Norristown, Pennsylvania, 19403',ScreenUtil().setSp(4),ThemeColor.lightTextColor),
-                   SizedBox(
-                     height: ScreenUtil().setSp(10),
-                   ),
-                   const CustomTextField(
-                     hint: 'Write down the building, apartment or office...',
-                   ),
-                   SizedBox(
-                     height: ScreenUtil().setSp(8),
-                   ),
-                   labelTextLight('Detail Address',ScreenUtil().setSp(4),ThemeColor.lightTextColor),
-                   SizedBox(
-                     height: ScreenUtil().setSp(5),
-                   ),
-                   RoundedButton(
-                     isEnable: true,
-                     text: 'Add Address',
-                     fontSize: 10,
-                     onTap: () {
-                     },
-                     width: ScreenUtil().setSp(100),
-                     height: ScreenUtil().setSp(30),
-                   ),
-                 ],
-               ),
-             ),
-           )
-         ],
-       ),
-     ),
-   );
-  }
-  
 }

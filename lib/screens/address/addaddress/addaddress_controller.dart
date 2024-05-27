@@ -20,7 +20,7 @@ class AddAddressController extends GetxController{
     keepMeLogin = getStorage.read(AppConstant.keepMeLogin) ?? false;
   }
 
-  redirectToIntroScreen() {
-    Get.offAndToNamed(Routes.introduction);
+  redirectToHomeScreen() {
+    Get.offAndToNamed(Routes.homeScreen);
   }
 }

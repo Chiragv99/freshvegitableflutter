@@ -65,6 +65,4 @@ static var updateRouteStatusReadyToGo = 1 ;
  static var updateRouteStatusStart = 2 ;
  static var updateRouteStatusCompletedTrip = 3 ;
 
-
-
 }
