@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:onlineshoppingsample/category/category_binding.dart';
+import 'package:onlineshoppingsample/category/category_screen.dart';
 import 'package:onlineshoppingsample/screens/address/addaddress/addaddress_binding.dart';
 import 'package:onlineshoppingsample/screens/address/address_map_binding.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen.dart';
@@ -16,6 +18,7 @@ class Routes{
   static String mapscreen = '/addressmap';
   static String addAddress = '/addaddress';
   static String homeScreen = '/homescreen';
+  static String category = '/categoryscreen';
 
   static const INITIAL = '/splash';
 
@@ -44,6 +47,11 @@ class Routes{
         name: '/homescreen',
         page: () => HomeScreen(),
         binding: HomeScreenBinding()
+    ),
+    GetPage(
+        name: '/categoryscreen',
+        page: () => CategoryScreen(),
+        binding: CategoryBinding()
     )
   ];
 }

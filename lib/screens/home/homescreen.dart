@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:onlineshoppingsample/models/categoryModel.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_controller.dart';
@@ -39,7 +40,7 @@ class HomeScreen extends GetView<HomeScreenController>{
             Column(
           children: [
             HomeAppBar(),
-            CategoryTab(categories: listCategory),
+            CategoryTab(categories: listCategory,controller: controller,),
             const SizedBox(
               height: 10,
             ),
@@ -48,7 +49,9 @@ class HomeScreen extends GetView<HomeScreenController>{
             Row(
               children: [
                 const Expanded(child: Text('Popular Deals')),
-                TextButton(onPressed: (){}, child: const Text('See All'))
+                TextButton(onPressed: (){
+                  controller.redirectToCategory();
+                }, child: const Text('See All'))
               ],
             )),
             Expanded(child: GridView(
@@ -270,11 +273,12 @@ class HomeAppBar extends StatelessWidget{
   }
 }
 class CategoryTab extends StatelessWidget{
-  const CategoryTab({
+   CategoryTab({
      Key? key,
     required this.categories,
-  }) : super(key: key);
+    required this.controller}) : super(key: key);
 
+  HomeScreenController controller;
   final List<CategoryModel> categories;
 
   @override
@@ -290,7 +294,7 @@ class CategoryTab extends StatelessWidget{
                style:  Theme.of(context).textTheme.headlineSmall,
              )),
              TextButton(onPressed: (){
-
+                controller.redirectToCategory();
              }, child: const Text("See All"))
            ],
          ),
