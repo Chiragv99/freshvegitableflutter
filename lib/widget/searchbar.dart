@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../uttils/screen_utils.dart';
 
-class SearchBar extends StatelessWidget{
-  const SearchBar({
+class SearchBarWidget extends StatelessWidget{
+  const SearchBarWidget({
     super.key,
   });
 

@@ -8,10 +8,12 @@ import 'package:onlineshoppingsample/screens/home/homescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/home/vegitable/vegitablescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_page.dart';
+import 'package:onlineshoppingsample/screens/search/searchscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_binding.dart';
 import '../screens/address/addaddress/add_address.dart';
 import '../screens/address/address_map.dart';
 import '../screens/home/vegitable/vegitablescreen.dart';
+import '../screens/search/searchscreen.dart';
 import '../screens/splash/splash_screen.dart';
 
 class Routes{
@@ -22,6 +24,8 @@ class Routes{
   static String homeScreen = '/homescreen';
   static String category = '/categoryscreen';
   static String vegitable = '/vegitablescreen';
+  static String search = '/searchscreen';
+
 
   static const INITIAL = '/splash';
 
@@ -60,6 +64,11 @@ class Routes{
         name: '/vegitablescreen',
         page: () => vegitableScreen(),
         binding: VegitableScreenBinding()
+    ),
+    GetPage(
+        name: '/searchscreen',
+        page: () => SearchScreen(),
+        binding: SearchScreenBinding()
     )
   ];
 }

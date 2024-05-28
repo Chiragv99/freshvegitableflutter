@@ -39,7 +39,7 @@ class HomeScreen extends GetView<HomeScreenController>{
             child:
             Column(
           children: [
-            HomeAppBar(),
+            HomeAppBar(controller: controller),
             CategoryTab(categories: listCategory,controller: controller,),
             const SizedBox(
               height: 10,
@@ -89,7 +89,7 @@ class IndiDealCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         left: isLeft! ? ScreenUtil().setSp(10.0) : 0,
-        right: isLeft! ? 0 : ScreenUtil().setSp(16.0),
+        right: isLeft! ? 0 : ScreenUtil().setSp(2.0),
       ),
       child: Container(
         padding: EdgeInsets.all(
@@ -136,22 +136,25 @@ class IndiDealCard extends StatelessWidget {
                     'Dragon Fruit',
                     style: Theme.of(context).textTheme.headline4!.copyWith(
                       fontWeight: FontWeight.w700,
+                      fontSize: ScreenUtil().setSp(10)
                     ),
                   ),
                   Text(
                     '200gr',
                     style: TextStyle(
-                      fontSize: ScreenUtil().setSp(12),
+                      fontSize: ScreenUtil().setSp(8),
                       color: kTextColorAccent,
+
                     ),
                   ),
-                  Spacer(),
                   Row(
                     children: [
                       Expanded(
                         child: Text(
                           '\$45',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headline5!.copyWith(
+                            fontSize: ScreenUtil().setSp(8)
+                          ),
                         ),
                       ),
                       RawMaterialButton(
@@ -162,10 +165,10 @@ class IndiDealCard extends StatelessWidget {
                         fillColor: kPrimaryGreen,
                         constraints: BoxConstraints.tightFor(
                           width: ScreenUtil().setSp(
-                            40,
+                            20,
                           ),
                           height: ScreenUtil().setSp(
-                            40,
+                            20,
                           ),
                         ),
                         elevation: 0,
@@ -243,9 +246,11 @@ class DealsTab extends StatelessWidget {
   }
 }
 class HomeAppBar extends StatelessWidget{
-  const HomeAppBar({
+  HomeScreenController controller;
+   HomeAppBar({
     Key? key,
-  }) : super(key: key);
+    required this.controller
+  }) : super(key: key,);
 
   @override
   Widget build(BuildContext context) {
@@ -271,9 +276,14 @@ class HomeAppBar extends StatelessWidget{
                )),
            ],
          )),
-         const Icon(
-           Icons.search,
-           color: kPrimaryGreen,
+         GestureDetector(
+           onTap: (){
+             controller.redirectToSearchScreen();
+           },
+           child:  Icon(
+             Icons.search,
+             color: kPrimaryGreen,
+           ),
          )
        ],
      ),);

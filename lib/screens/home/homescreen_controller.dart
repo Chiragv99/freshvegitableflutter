@@ -17,4 +17,8 @@ class HomeScreenController extends GetxController{
   void redirectToVegetableScreen(){
     Get.offAndToNamed(Routes.vegitable);
   }
+
+  void redirectToSearchScreen(){
+    Get.offAndToNamed(Routes.search);
+  }
 }
