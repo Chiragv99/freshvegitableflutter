@@ -5,11 +5,13 @@ import 'package:onlineshoppingsample/screens/address/addaddress/addaddress_bindi
 import 'package:onlineshoppingsample/screens/address/address_map_binding.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_binding.dart';
+import 'package:onlineshoppingsample/screens/home/vegitable/vegitablescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_page.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_binding.dart';
 import '../screens/address/addaddress/add_address.dart';
 import '../screens/address/address_map.dart';
+import '../screens/home/vegitable/vegitablescreen.dart';
 import '../screens/splash/splash_screen.dart';
 
 class Routes{
@@ -19,6 +21,7 @@ class Routes{
   static String addAddress = '/addaddress';
   static String homeScreen = '/homescreen';
   static String category = '/categoryscreen';
+  static String vegitable = '/vegitablescreen';
 
   static const INITIAL = '/splash';
 
@@ -52,6 +55,11 @@ class Routes{
         name: '/categoryscreen',
         page: () => CategoryScreen(),
         binding: CategoryBinding()
+    ),
+    GetPage(
+        name: '/vegitablescreen',
+        page: () => vegitableScreen(),
+        binding: VegitableScreenBinding()
     )
   ];
 }

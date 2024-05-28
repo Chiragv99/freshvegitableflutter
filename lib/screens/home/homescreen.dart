@@ -44,7 +44,7 @@ class HomeScreen extends GetView<HomeScreenController>{
             const SizedBox(
               height: 10,
             ),
-            DealsTab(categoriesBanner: listBanner,),
+            DealsTab(categoriesBanner: listBanner,controller: controller,),
             Padding(padding: EdgeInsets.only(left: ScreenUtil().setSp(18),right:ScreenUtil().setSp(18)),child:
             Row(
               children: [
@@ -186,11 +186,16 @@ class IndiDealCard extends StatelessWidget {
   }
 }
 class DealsTab extends StatelessWidget {
-  const DealsTab({
+
+  final List<CategoryModel> categoriesBanner;
+  HomeScreenController controller;
+
+   DealsTab({
     super.key,
     required this.categoriesBanner,
+    required this.controller
   });
-  final List<CategoryModel> categoriesBanner;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -211,7 +216,9 @@ class DealsTab extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                    controller.redirectToVegetableScreen();
+                },
                 child: const Text(
                   'See All',
                 ),

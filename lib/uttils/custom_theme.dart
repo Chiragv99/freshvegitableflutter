@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:onlineshoppingsample/uttils/screen_utils.dart';
 import '../constants/colors.dart';
 
 class CustomTheme {
@@ -45,6 +47,23 @@ class CustomTheme {
       ),
     ),
   );
+
+ static roundButtonDecoration() => ShapeDecoration(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          ScreenUtil().setSp(5),
+        ),
+      )
+  );
+
+ static boxShadow() =>BoxShadow(
+   color: kShadowColor,
+   offset: Offset(
+     getProportionateScreenWidth(24),
+     getProportionateScreenWidth(40),
+   ),
+   blurRadius: 80,
+ );
 
   elevatedButtonTheme() => ElevatedButtonThemeData(
     style: ButtonStyle(
