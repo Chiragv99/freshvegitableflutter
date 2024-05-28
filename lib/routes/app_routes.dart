@@ -5,6 +5,7 @@ import 'package:onlineshoppingsample/screens/address/addaddress/addaddress_bindi
 import 'package:onlineshoppingsample/screens/address/address_map_binding.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_binding.dart';
+import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_binding.dart';
 import 'package:onlineshoppingsample/screens/home/vegitable/vegitablescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_page.dart';
@@ -12,6 +13,7 @@ import 'package:onlineshoppingsample/screens/search/searchscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_binding.dart';
 import '../screens/address/addaddress/add_address.dart';
 import '../screens/address/address_map.dart';
+import '../screens/home/populardeals/populardealsscreen.dart';
 import '../screens/home/vegitable/vegitablescreen.dart';
 import '../screens/search/searchscreen.dart';
 import '../screens/splash/splash_screen.dart';
@@ -25,7 +27,7 @@ class Routes{
   static String category = '/categoryscreen';
   static String vegitable = '/vegitablescreen';
   static String search = '/searchscreen';
-
+  static String popular = '/populardealscreen';
 
   static const INITIAL = '/splash';
 
@@ -69,6 +71,11 @@ class Routes{
         name: '/searchscreen',
         page: () => SearchScreen(),
         binding: SearchScreenBinding()
+    ),
+    GetPage(
+        name: '/populardealscreen',
+        page: () => PopularDealScreen(),
+        binding: PopularDealsBinding()
     )
   ];
 }

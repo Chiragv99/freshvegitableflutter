@@ -113,7 +113,7 @@ class BottomMapCard extends StatelessWidget{
                   children: [
                     Row(
                       children: [
-                        labelTextRegular('Planet Namex 989', ScreenUtil().setSp(6), ThemeColor.darkTextColor),
+                        labelTextRegular('Planet Namex 989', ScreenUtil().setSp(8), ThemeColor.darkTextColor),
                         Spacer(),
                         Icon(Icons.search,
                           size: ScreenUtil().setSp(15),)
@@ -122,17 +122,17 @@ class BottomMapCard extends StatelessWidget{
                     SizedBox(
                       height: ScreenUtil().setSp(3),
                     ),
-                    labelTextLight('Norristown, Pennsylvania, 19403',ScreenUtil().setSp(4),ThemeColor.lightTextColor),
+                    labelTextLight('Norristown, Pennsylvania, 19403',ScreenUtil().setSp(8),ThemeColor.lightTextColor),
                     SizedBox(
                       height: ScreenUtil().setSp(10),
                     ),
-                    const CustomTextField(
+                     CustomTextField(
                       hint: 'Write down the building, apartment or office...',
                     ),
                     SizedBox(
                       height: ScreenUtil().setSp(8),
                     ),
-                    labelTextLight('Detail Address',ScreenUtil().setSp(4),ThemeColor.lightTextColor),
+                    labelTextLight('Detail Address',ScreenUtil().setSp(6),ThemeColor.lightTextColor),
                     SizedBox(
                       height: ScreenUtil().setSp(5),
                     ),

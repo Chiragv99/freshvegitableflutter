@@ -18,7 +18,16 @@ class vegitableScreen extends GetView<VegitableController>{
       VegitableModel('Potato','${AppConstant.assestPath}banner7.jpeg',"100","20",false),
       VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"30","10",false),
       VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"150","50",true),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
       VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",true),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",true),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
+      VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
+
+
     ];
    return Scaffold(
      body: SafeArea(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/colors.dart';
 import '../uttils/screen_utils.dart';
 
@@ -30,12 +31,12 @@ class SearchBarWidget extends StatelessWidget{
           hintText: 'Enter Address',
           contentPadding: EdgeInsets.symmetric(
             vertical: getProportionateScreenHeight(
-              10,
+              ScreenUtil().setSp(3)
             ),
           ),
           hintStyle: TextStyle(
             color: kGreyShade2,
-            fontSize: getProportionateScreenWidth(17),
+            fontSize: getProportionateScreenWidth(10),
           )),
     );
   }

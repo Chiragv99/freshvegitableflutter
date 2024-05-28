@@ -11,14 +11,19 @@ class HomeScreenController extends GetxController{
   }
 
   void redirectToCategory(){
-    Get.offAndToNamed(Routes.category);
+    Get.toNamed(Routes.category);
+    //Get.offNamedUntil(Routes.category);
+  }
+  void redirectToPopularDealScreen(){
+    Get.toNamed(Routes.popular);
+    //Get.offNamedUntil(Routes.category);
   }
 
   void redirectToVegetableScreen(){
-    Get.offAndToNamed(Routes.vegitable);
+    Get.toNamed(Routes.vegitable);
   }
 
   void redirectToSearchScreen(){
-    Get.offAndToNamed(Routes.search);
+    Get.toNamed(Routes.search);
   }
 }

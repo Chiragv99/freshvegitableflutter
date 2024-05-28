@@ -160,6 +160,7 @@ class IllustrationPageView extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
+                    print("Skip"+"Skip");
                   },
                   child: Text(
                     'Skip',

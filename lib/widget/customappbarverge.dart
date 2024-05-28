@@ -14,7 +14,7 @@ class CustomAppBarVege extends StatelessWidget{
         Text(
           'Featured Vegetables',
           style: TextStyle(
-            fontSize: ScreenUtil().setSp(10),
+            fontSize: ScreenUtil().setSp(12),
             fontWeight: FontWeight.w600,
           ),
         ),

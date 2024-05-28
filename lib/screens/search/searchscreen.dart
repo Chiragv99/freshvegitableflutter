@@ -19,6 +19,7 @@ class SearchScreen extends  GetView<SearchScreenController>{
       body: SafeArea(child: SingleChildScrollView(
         child: Column(
           children: [
+           SizedBox(height: 20,),
             SearchTab(),
             SizedBox(
               height:ScreenUtil().setSp(15),
@@ -31,6 +32,11 @@ class SearchScreen extends  GetView<SearchScreenController>{
                   DealCard('${AppConstant.assestPath}banner7.jpeg'),
                   DealCard('${AppConstant.assestPath}banner5.jpeg'),
                   DealCard('${AppConstant.assestPath}banner8.png'),
+                  DealCard('${AppConstant.assestPath}banner7.jpeg'),
+                  DealCard('${AppConstant.assestPath}banner7.jpeg'),
+                  DealCard('${AppConstant.assestPath}banner7.jpeg'),
+                  DealCard('${AppConstant.assestPath}banner7.jpeg'),
+                  DealCard('${AppConstant.assestPath}banner7.jpeg'),
                   DealCard('${AppConstant.assestPath}banner7.jpeg'),
                 ],
               ),
@@ -105,7 +111,7 @@ class SearchTab extends StatelessWidget{
   child:  Row(
     children: [
       SizedBox(
-        height: 50,
+        height: ScreenUtil().setSp(10),
       ),
       Expanded(
         child: SearchBarWidget(),

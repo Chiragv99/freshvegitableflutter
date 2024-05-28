@@ -13,47 +13,47 @@ class CategoryScreen extends GetView<CategoryController>{
    CategoryScreen({Key? key}) : super(key: key);
 
   final List<CategoryModel> categories = [
-    CategoryModel(
+    const CategoryModel(
       'Vegetables',
       'assets/images/vegetable.png',
       kAccentGreen,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Fruits',
       'assets/images/fruit.png',
       kAccentRed,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Milks & egg',
       'assets/images/egg.png',
       kAccentYellow,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Meat',
       'assets/images/meat.png',
       kAccentPurple,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Bread',
       'assets/images/bread.png',
       kAccentTosca,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Fish',
       'assets/images/seafood.png',
       kAccentGreen,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Cookies',
       'assets/images/cereal.png',
       kAccentRed,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Herbs',
       'assets/images/herbs.png',
       kAccentYellow,
     ),
-    CategoryModel(
+    const CategoryModel(
       'Drinks',
       'assets/images/drinks.png',
       kAccentPurple,

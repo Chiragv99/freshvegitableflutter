@@ -39,6 +39,9 @@ class HomeScreen extends GetView<HomeScreenController>{
             child:
             Column(
           children: [
+            const SizedBox(
+              height: 20,
+            ),
             HomeAppBar(controller: controller),
             CategoryTab(categories: listCategory,controller: controller,),
             const SizedBox(
@@ -50,7 +53,7 @@ class HomeScreen extends GetView<HomeScreenController>{
               children: [
                 const Expanded(child: Text('Popular Deals')),
                 TextButton(onPressed: (){
-                  controller.redirectToCategory();
+                  controller.redirectToPopularDealScreen();
                 }, child: const Text('See All'))
               ],
             )),
@@ -67,8 +70,9 @@ class HomeScreen extends GetView<HomeScreenController>{
                 ),
                 IndiDealCard(
                   isLeft: false,
-                  isSelected: false,
+                  isSelected: true,
                 ),
+
               ],
             ))
           ],
@@ -81,8 +85,10 @@ class HomeScreen extends GetView<HomeScreenController>{
 class IndiDealCard extends StatelessWidget {
   final bool? isLeft;
   final bool ? isSelected;
+  final bool? noPadding;
+  final Function ? addHandler;
 
-  const IndiDealCard({this.isLeft, this.isSelected});
+  const IndiDealCard({super.key, this.isLeft, this.isSelected,this.addHandler, this.noPadding = false});
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +126,7 @@ class IndiDealCard extends StatelessWidget {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('${AppConstant.assestPath}images1.png'),fit: BoxFit.fill),
+                  image: DecorationImage(image: AssetImage('${AppConstant.assestPath}banner1.png'),fit: BoxFit.fill),
                   color: kGreyShade5,
                   borderRadius: BorderRadius.circular(
                     ScreenUtil().setSp(8.0),
@@ -215,15 +221,20 @@ class DealsTab extends StatelessWidget {
               Expanded(
                 child: Text(
                   'Special Deals for You',
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontSize: ScreenUtil().setSp(14)
+                  ),
                 ),
               ),
               TextButton(
                 onPressed: () {
                     controller.redirectToVegetableScreen();
                 },
-                child: const Text(
+                child:  Text(
                   'See All',
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontSize: ScreenUtil().setSp(12)
+                  ),
                 ),
               ),
             ],
@@ -266,13 +277,14 @@ class HomeAppBar extends StatelessWidget{
                'Planet Namex 989',
                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                  fontWeight: FontWeight.w700,
+                 fontSize: ScreenUtil().screenWidth * 0.040
                ),
              ),
              Text(
                'Norristown, Pennsyvlvania, 19403',
                style: TextStyle(
                  color: kTextColorAccent,
-                 fontSize: ScreenUtil().setSp(10)
+                 fontSize:  ScreenUtil().screenWidth * 0.030
                )),
            ],
          )),
@@ -308,7 +320,9 @@ class CategoryTab extends StatelessWidget{
            children: [
              Expanded(child: Text(
                'Categories',
-               style:  Theme.of(context).textTheme.headlineSmall,
+               style:  Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  fontSize: ScreenUtil().screenWidth * 0.040
+               ),
              )),
              TextButton(onPressed: (){
                 controller.redirectToCategory();
@@ -343,7 +357,7 @@ class CategoryCard extends StatelessWidget{
            radius:  ScreenUtil().setSp(18),
            backgroundColor: categoryModel.color,
            child: SizedBox(
-             width: ScreenUtil().setSp(18),
+             width: ScreenUtil().setSp(20),
              child: Image.asset(
                categoryModel.catIcon,
                fit: BoxFit.cover,

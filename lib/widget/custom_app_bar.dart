@@ -10,11 +10,12 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        SizedBox(height: 10,),
         Expanded(child: BackButtonText()),
         Text(
           title,
           style: TextStyle(
-            fontSize: ScreenUtil().setSp(10),
+            fontSize: ScreenUtil().setSp(12),
             fontWeight: FontWeight.w600,
           ),
         ),
