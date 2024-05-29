@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/screens/productdetail/productdetail_controller.dart';
+import 'package:onlineshoppingsample/uttils/screen_utils.dart';
 import 'package:onlineshoppingsample/widget/custom_app_bar.dart';
 import 'package:onlineshoppingsample/widget/image_placeholder.dart';
 
@@ -17,6 +18,7 @@ import '../../widget/quantity_input.dart';
 
 class ProductDetailPage extends GetView<ProductDetailController>{
   final textController = TextEditingController(text: '1');
+  bool isReviewTab = false;
   ProductDetailPage({Key? key}) : super(key: key);
 
   @override
@@ -84,10 +86,65 @@ class ProductDetailPage extends GetView<ProductDetailController>{
 
                        }),
                      ],
-                   )
+                   ),
+                   SizedBox(
+                     height: ScreenUtil().setSp(8.0),
+                   ),
+                   Container(
+                     height:  ScreenUtil().setSp(
+                       32,
+                     ),
+                     padding: EdgeInsets.symmetric(
+                       vertical:  ScreenUtil().setSp(2),
+                       horizontal:  ScreenUtil().setSp(4),
+                     ),
+                     decoration: ShapeDecoration(
+                       color: kFillColorThird,
+                       shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(
+                           ScreenUtil().setSp(8.0),
+                         ),
+                       ),
+                     ),
+                     child: Row(
+                       crossAxisAlignment: CrossAxisAlignment.stretch,
+                       children: [
+                         Expanded(
+                           child: GestureDetector(
+                             onTap: () {
+                               if (!isReviewTab) {
+                                 return;
+                               }
+                             },
+                             child: DetailSelection(
+                               'Detail Items',
+                               !isReviewTab,
+                             ),
+                           ),
+                         ),
+                         VerticalDivider(
+                           endIndent: getProportionateScreenHeight(4),
+                           indent: getProportionateScreenHeight(4),
+                         ),
+                         Expanded(
+                           child: GestureDetector(
+                             onTap: () {
+                               if (isReviewTab) {
+                                 return;
+                               }
+                             },
+                             child: DetailSelection(
+                               'Reviews',
+                               isReviewTab,
+                             ),
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
                  ],
                ),
-               )
+               ),
              ],
            ),
          ))
@@ -118,6 +175,39 @@ class ProductDetailPage extends GetView<ProductDetailController>{
           width: ScreenUtil().setSp(12),
         ),
       ],
+    );
+  }
+}
+class DetailSelection extends StatelessWidget{
+  final String text;
+  final bool isSelected;
+
+  const DetailSelection(this.text, this.isSelected);
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
+      decoration: isSelected
+          ? ShapeDecoration(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              ScreenUtil().setSp(12)
+            ),
+          ),
+          shadows: [
+            BoxShadow(
+              color: kShadowColor,
+              offset: Offset(0, 3),
+              blurRadius: 8,
+            )
+          ])
+          : null,
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
