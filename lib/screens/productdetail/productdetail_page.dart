@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:onlineshoppingsample/screens/productdetail/productdetail_controller.dart';
 import 'package:onlineshoppingsample/uttils/screen_utils.dart';
 import 'package:onlineshoppingsample/widget/custom_app_bar.dart';
-import 'package:onlineshoppingsample/widget/image_placeholder.dart';
-
 import '../../constants/colors.dart';
 import '../../widget/custom_input_button.dart';
 import '../../widget/discount_text.dart';
@@ -15,6 +13,7 @@ import '../../widget/fruit_title.dart';
 import '../../widget/previous_price_tag.dart';
 import '../../widget/priceTag.dart';
 import '../../widget/quantity_input.dart';
+import '../../widget/review_card.dart';
 
 class ProductDetailPage extends GetView<ProductDetailController>{
   final textController = TextEditingController(text: '1');
