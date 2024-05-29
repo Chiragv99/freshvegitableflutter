@@ -37,46 +37,57 @@ class HomeScreen extends GetView<HomeScreenController>{
     return Scaffold(
         body:  SafeArea(
             child:
-            Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            HomeAppBar(controller: controller),
-            CategoryTab(categories: listCategory,controller: controller,),
-            const SizedBox(
-              height: 10,
-            ),
-            DealsTab(categoriesBanner: listBanner,controller: controller,),
-            Padding(padding: EdgeInsets.only(left: ScreenUtil().setSp(18),right:ScreenUtil().setSp(18)),child:
-            Row(
-              children: [
-                const Expanded(child: Text('Popular Deals')),
-                TextButton(onPressed: (){
-                  controller.redirectToPopularDealScreen();
-                }, child: const Text('See All'))
-              ],
-            )),
-            Expanded(child: GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.8,
-                crossAxisSpacing: ScreenUtil().setSp(4)
-              ),
-              children: const [
-                IndiDealCard(
-                  isLeft: true,
-                  isSelected: true,
-                ),
-                IndiDealCard(
-                  isLeft: false,
-                  isSelected: true,
-                ),
-
-              ],
-            ))
-          ],
-        ))
+             Column(
+               children: [
+                 Expanded(child: SingleChildScrollView(
+                   child: Column(
+                     children: [
+                       const SizedBox(
+                         height: 20,
+                       ),
+                       HomeAppBar(controller: controller),
+                       CategoryTab(categories: listCategory,controller: controller,),
+                       const SizedBox(
+                         height: 10,
+                       ),
+                       DealsTab(categoriesBanner: listBanner,controller: controller,),
+                       Padding(padding: EdgeInsets.only(left: ScreenUtil().setSp(18),right:ScreenUtil().setSp(18)),child:
+                       Row(
+                         children: [
+                           const Expanded(child: Text('Popular Deals')),
+                           TextButton(onPressed: (){
+                             controller.redirectToPopularDealScreen();
+                           }, child: const Text('See All'))
+                         ],
+                       )),
+                      Padding(padding: EdgeInsets.all(10),child:
+                      SizedBox(
+                          width: double.infinity,
+                      height: ScreenUtil().setSp(200),
+                      child:
+                      GridView(
+                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                           crossAxisCount: 2,
+                           childAspectRatio: 0.8,
+                           crossAxisSpacing: ScreenUtil().setSp(4)
+                       ),
+                       children: const [
+                         IndiDealCard(
+                           isLeft: true,
+                           isSelected: true,
+                         ),
+                         IndiDealCard(
+                           isLeft: false,
+                           isSelected: true,
+                         ),
+                       ],
+                     )))
+                     ],
+                   ),
+                 ))
+               ],
+             )
+           )
     );
   }
 }
@@ -250,7 +261,12 @@ class DealsTab extends StatelessWidget {
             itemCount: categoriesBanner.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context,index){
-              return DealCard(categoriesBanner[index].catIcon);
+              return GestureDetector(
+                onTap: (){
+                  controller.redirectToProductDetailScreen();
+                  print("Index"+ index.toString());
+                },
+                child: DealCard(categoriesBanner[index].catIcon),);
             }))
       ],
     );

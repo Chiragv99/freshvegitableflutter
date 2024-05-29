@@ -1,0 +1,37 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:onlineshoppingsample/constants/colors.dart';
+
+class PriceTag extends StatelessWidget{
+  const PriceTag({
+    Key ? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        vertical: ScreenUtil().setSp(8.0),
+        horizontal: ScreenUtil().setSp(8.0)
+      ),
+       decoration: ShapeDecoration(
+        color: kAccentGreen,
+        shape:  RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+        8.0
+        ),
+      ),
+    ),
+      child: Text(
+        '\$56',
+        style: Theme.of(context).textTheme.headline3!.copyWith(
+          color: kPrimaryGreen,
+        ),
+      ),
+    );
+  }
+
+  
+  
+}

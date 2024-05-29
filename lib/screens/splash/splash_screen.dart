@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_controller.dart';
 import '../../constants/colors.dart';
+import '../../widget/round_button.dart';
 
 
 
@@ -51,12 +53,20 @@ Widget getIntroductionScreenWidget(BuildContext context, SplashController contro
   ),
   ),
   const SizedBox(height: 40),
-  ElevatedButton(
-  onPressed: () {
-    controller.redirectToIntroScreen();
-  },
-  child: const Text('Get Started'),
-  ),
+    Center(
+      child:   RoundedButton(
+        isEnable: true,
+        text: 'Get Started',
+        fontSize: 10,
+        onTap: () {
+          print("GetStart"+ "GetStart");
+          controller.redirectToIntroScreen();
+        },
+        width: ScreenUtil().setSp(100),
+        height: ScreenUtil().setSp(30),
+      ),
+    )
+  ,
   ],
   ),
   )

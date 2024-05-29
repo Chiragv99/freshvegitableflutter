@@ -9,12 +9,14 @@ import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_bind
 import 'package:onlineshoppingsample/screens/home/vegitable/vegitablescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_page.dart';
+import 'package:onlineshoppingsample/screens/productdetail/productdetail_binding.dart';
 import 'package:onlineshoppingsample/screens/search/searchscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_binding.dart';
 import '../screens/address/addaddress/add_address.dart';
 import '../screens/address/address_map.dart';
 import '../screens/home/populardeals/populardealsscreen.dart';
 import '../screens/home/vegitable/vegitablescreen.dart';
+import '../screens/productdetail/productdetail_page.dart';
 import '../screens/search/searchscreen.dart';
 import '../screens/splash/splash_screen.dart';
 
@@ -28,6 +30,7 @@ class Routes{
   static String vegitable = '/vegitablescreen';
   static String search = '/searchscreen';
   static String popular = '/populardealscreen';
+  static String productdetail = '/productdetailpage';
 
   static const INITIAL = '/splash';
 
@@ -76,6 +79,11 @@ class Routes{
         name: '/populardealscreen',
         page: () => PopularDealScreen(),
         binding: PopularDealsBinding()
+    ),
+    GetPage(
+        name: productdetail,
+        page: () => ProductDetailPage(),
+        binding: ProductDetailBinding()
     )
   ];
 }

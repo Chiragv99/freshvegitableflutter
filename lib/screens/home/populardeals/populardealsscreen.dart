@@ -5,8 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_controller.dart';
-import 'package:onlineshoppingsample/uttils/screen_utils.dart';
-
 import '../../../constants/colors.dart';
 import '../../../widget/custom_app_bar.dart';
 import '../homescreen.dart';

@@ -26,4 +26,8 @@ class HomeScreenController extends GetxController{
   void redirectToSearchScreen(){
     Get.toNamed(Routes.search);
   }
+
+  void redirectToProductDetailScreen(){
+    Get.toNamed(Routes.productdetail);
+  }
 }
