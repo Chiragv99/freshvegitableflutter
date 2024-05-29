@@ -10,7 +10,7 @@ class CustomIconButton extends StatelessWidget{
   final Function ? onPress;
   final double size;
 
-  const CustomIconButton(this.icon, this.onPress, {this.size = 40});
+  const CustomIconButton(this.icon, this.onPress, {this.size = 80});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class CustomIconButton extends StatelessWidget{
        child: Icon(
          icon,
          color: kGreyShade1,
-         size: size / 2,
+         size: size / 3,
        ),
      ),
    );

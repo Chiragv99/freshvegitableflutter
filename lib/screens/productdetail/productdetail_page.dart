@@ -19,6 +19,8 @@ import '../../widget/quantity_input.dart';
 class ProductDetailPage extends GetView<ProductDetailController>{
   final textController = TextEditingController(text: '1');
   bool isReviewTab = false;
+  final PageController _controller = PageController();
+
   ProductDetailPage({Key? key}) : super(key: key);
 
   @override
@@ -35,9 +37,17 @@ class ProductDetailPage extends GetView<ProductDetailController>{
                  height: ScreenUtil().setSp(10),
                ),
                SizedBox(
-                 height: ScreenUtil().setSp(200),
-                 width: double.infinity,
-                 child: ImagePlaceHolder(),
+                 height: 300,
+                 child: PageView(
+                   controller: _controller,
+                   onPageChanged: (pageNum) {
+                   },
+                   children: [
+                     pageViewImage('assets/images/banner3.jpeg'),
+                     pageViewImage('assets/images/banner7.jpeg'),
+                     pageViewImage('assets/images/banner8.png'),
+                   ],
+                 ),
                ),
                SizedBox(
                  height: ScreenUtil().setSp(5),
@@ -54,13 +64,14 @@ class ProductDetailPage extends GetView<ProductDetailController>{
                    ),
                    FruitTitle(title: 'Fruit\'s Bundle'),
                    SizedBox(
-                     height: ScreenUtil().setSp(8),
+                     height: ScreenUtil().setSp(5),
                    ),
                    Text(
                      '200gr',
                      style:
                      Theme.of(context).textTheme.headline4!.copyWith(
                        color: kTextColorAccent,
+                       fontSize: ScreenUtil().setSp(8)
                      ),
                    ),
                    Row(
@@ -210,4 +221,75 @@ class DetailSelection extends StatelessWidget{
       ),
     );
   }
+}
+Widget pageViewImage(String imagePath){
+  return  Image.asset(
+    imagePath,
+    fit: BoxFit.fitWidth,
+  );
+}
+
+class UserDetails extends StatelessWidget{
+  const UserDetails({
+    Key ? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+   return Expanded(
+       child: Column(
+         children: [
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             children: [
+               Text(
+                 'Shoo Thar Mien',
+                 style: TextStyle(
+                   fontSize: getProportionateScreenWidth(17.0),
+                   fontWeight: FontWeight.w700,
+                 ),
+               ),
+               Icon(Icons.more_vert_rounded),
+             ],
+           ),
+           Row(
+             children: [
+               Image.asset(
+                 'assets/images/star_rating.png',
+               ),
+               SizedBox(
+                 width: ScreenUtil().setSp(2),
+               ),
+               Image.asset('assets/images/star_rating.png'),
+               SizedBox(
+                 width: ScreenUtil().setSp(2),
+               ),
+               Image.asset(
+                 'assets/images/star_rating.png',
+               ),
+               SizedBox(
+                 width: getProportionateScreenWidth(4),
+               ),
+               Image.asset(
+                 'assets/images/star_rating.png',
+               ),
+               SizedBox(
+                 width: getProportionateScreenWidth(4),
+               ),
+               Image.asset(
+                 'assets/images/star_rating.png',
+               ),
+               Text(
+                 '29 February, 2099',
+                 style: TextStyle(
+                   color: kTextColorAccent,
+                 ),
+               ),
+             ],
+           )
+         ],
+       ));
+  }
+  
+  
 }
