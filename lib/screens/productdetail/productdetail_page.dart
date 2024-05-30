@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/screens/productdetail/productdetail_controller.dart';
@@ -13,7 +11,6 @@ import '../../widget/fruit_title.dart';
 import '../../widget/previous_price_tag.dart';
 import '../../widget/priceTag.dart';
 import '../../widget/quantity_input.dart';
-import '../../widget/review_card.dart';
 
 class ProductDetailPage extends GetView<ProductDetailController>{
   final textController = TextEditingController(text: '1');
@@ -167,11 +164,16 @@ class ProductDetailPage extends GetView<ProductDetailController>{
     return  CustomAppBar(
       'Dragon Fruit',
       [
-        SizedBox(
-          width: ScreenUtil().setSp(12),
-          child: Image.asset(
-            'assets/images/cart_nav_fill.png',
-            fit: BoxFit.cover,
+        GestureDetector(
+          onTap: (){
+          controller.redirectToCart();
+          },
+          child: SizedBox(
+            width: ScreenUtil().setSp(12),
+            child: Image.asset(
+              'assets/images/cart_nav_fill.png',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         SizedBox(
@@ -278,7 +280,7 @@ class UserDetails extends StatelessWidget{
                Image.asset(
                  'assets/images/star_rating.png',
                ),
-               Text(
+               const Text(
                  '29 February, 2099',
                  style: TextStyle(
                    color: kTextColorAccent,

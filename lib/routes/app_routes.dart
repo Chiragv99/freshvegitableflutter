@@ -3,6 +3,8 @@ import 'package:onlineshoppingsample/category/category_binding.dart';
 import 'package:onlineshoppingsample/category/category_screen.dart';
 import 'package:onlineshoppingsample/screens/address/addaddress/addaddress_binding.dart';
 import 'package:onlineshoppingsample/screens/address/address_map_binding.dart';
+import 'package:onlineshoppingsample/screens/cart/cartscreen.dart';
+import 'package:onlineshoppingsample/screens/cart/cartscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_binding.dart';
@@ -31,6 +33,7 @@ class Routes{
   static String search = '/searchscreen';
   static String popular = '/populardealscreen';
   static String productdetail = '/productdetailpage';
+  static String cartscreen = '/cartscreen';
 
   static const INITIAL = '/splash';
 
@@ -84,6 +87,11 @@ class Routes{
         name: productdetail,
         page: () => ProductDetailPage(),
         binding: ProductDetailBinding()
+    ),
+    GetPage(
+        name: cartscreen,
+        page: () => CartScreen(),
+        binding: CartScreenBinding()
     )
   ];
 }

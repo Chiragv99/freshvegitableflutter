@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../routes/app_routes.dart';
+
 class ProductDetailController extends GetxController{
 
   // For Store Data
@@ -12,7 +14,9 @@ class ProductDetailController extends GetxController{
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-
+  }
+  void redirectToCart(){
+    Get.offAndToNamed(Routes.cartscreen);
   }
 
 }

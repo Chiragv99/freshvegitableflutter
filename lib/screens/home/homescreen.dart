@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:onlineshoppingsample/controller/product_controller.dart';
 import 'package:onlineshoppingsample/models/categoryModel.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_controller.dart';
 import 'package:onlineshoppingsample/uttils/appConstant.dart';
+import 'package:onlineshoppingsample/widget/popular_deals_widget.dart';
 
 import '../../constants/colors.dart';
 
 class HomeScreen extends GetView<HomeScreenController>{
   HomeScreen({Key? key}) : super(key: key);
+
+  final ProductController controller1 = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {
@@ -61,27 +65,12 @@ class HomeScreen extends GetView<HomeScreenController>{
                          ],
                        )),
                       Padding(padding: EdgeInsets.all(10),child:
-                      SizedBox(
-                          width: double.infinity,
-                      height: ScreenUtil().setSp(200),
-                      child:
-                      GridView(
-                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                           crossAxisCount: 2,
-                           childAspectRatio: 0.8,
-                           crossAxisSpacing: ScreenUtil().setSp(4)
-                       ),
-                       children: const [
-                         IndiDealCard(
-                           isLeft: true,
-                           isSelected: true,
-                         ),
-                         IndiDealCard(
-                           isLeft: false,
-                           isSelected: true,
-                         ),
-                       ],
-                     )))
+                      GetBuilder(builder: (ProductController controller){
+                        return PopularDealsWidget(
+                            items: controller.filteredProducts,
+                            isPriceOff: (product) => controller.isPriceOff(product),
+                            likeButtonPressed: (index) => controller.isFavorite(index));
+                      },))
                      ],
                    ),
                  ))

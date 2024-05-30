@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/constants/colors.dart';
 import 'package:onlineshoppingsample/screens/cart/cartscreen_controller.dart';
+import 'package:onlineshoppingsample/widget/orderCard.dart';
 
 class CartScreen extends GetView<CartScreenController>{
 
@@ -28,7 +29,7 @@ class CartScreen extends GetView<CartScreenController>{
                    ),
                  ),
                  Spacer(),
-                 Icon(
+                 const Icon(
                    Icons.search,
                    color: kPrimaryGreen,
                  )
@@ -43,13 +44,7 @@ class CartScreen extends GetView<CartScreenController>{
                      (index) => Column(
                    children: [
                      index == 0
-                         ? OrderCard(
-                       isSelected: true,
-                     )
-                         : OrderCard(),
-                     SizedBox(
-                       height: getProportionateScreenHeight(8.0),
-                     ),
+                         ?  OrderCard() :  OrderCard()
                    ],
                  ),
                ),
