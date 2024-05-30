@@ -1,14 +1,18 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:onlineshoppingsample/controller/product_controller.dart';
 import 'package:onlineshoppingsample/models/categoryModel.dart';
+import 'package:onlineshoppingsample/screens/cart/cartscreen.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_controller.dart';
+import 'package:onlineshoppingsample/screens/wishList/wishlist_screen.dart';
 import 'package:onlineshoppingsample/uttils/appConstant.dart';
 import 'package:onlineshoppingsample/widget/popular_deals_widget.dart';
 
 import '../../constants/colors.dart';
+import '../../core/app_data.dart';
 
 class HomeScreen extends GetView<HomeScreenController>{
   HomeScreen({Key? key}) : super(key: key);
@@ -38,7 +42,31 @@ class HomeScreen extends GetView<HomeScreenController>{
       CategoryModel("Vegetables", '${AppConstant.assestPath}banner8.png', kAccentGreen),
       CategoryModel("Fruits", '${AppConstant.assestPath}banner5.jpeg', kAccentRed),
     ];
+
+    List<Widget> screens = [
+      HomeScreen(),
+      CartScreen(),
+      CartScreen(),
+      CartScreen(),
+    ];
     return Scaffold(
+        bottomNavigationBar: BottomNavyBar(
+          itemCornerRadius: 10,
+          selectedIndex: 0,
+          items: AppData.bottomNavyBarItems
+              .map(
+                (item) => BottomNavyBarItem(
+              icon: item.icon,
+              title: item.title,
+              activeColor: item.activeColor,
+              inactiveColor: item.activeColor,
+            ),
+          )
+              .toList(),
+          onItemSelected: (currentIndex) {
+
+          },
+        ),
         body:  SafeArea(
             child:
              Column(

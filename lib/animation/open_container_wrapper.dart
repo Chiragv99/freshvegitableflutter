@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:onlineshoppingsample/models/product_list_model.dart';
 import 'package:onlineshoppingsample/screens/address/addaddress/add_address.dart';
+import 'package:onlineshoppingsample/screens/productdetail/productdetail_page.dart';
 class OpenContainerWrapper extends StatelessWidget {
   const OpenContainerWrapper({
     super.key,
@@ -24,7 +25,7 @@ class OpenContainerWrapper extends StatelessWidget {
       closedBuilder: (_, VoidCallback openContainer) {
         return InkWell(onTap: openContainer, child: child);
       },
-      openBuilder: (_, __) => AddAddress(),
+      openBuilder: (_, __) => ProductDetailPage(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:onlineshoppingsample/models/product_list_model.dart';
 import 'package:onlineshoppingsample/models/product_list_type.dart';
@@ -12,6 +13,27 @@ class AppData {
       ' industry. Lorem Ipsum has been the industry\'s standard dummy text'
       ' ever since the 1500s, when an unknown printer took a galley of type'
       ' and scrambled it to make a type specimen book.';
+
+
+  static List<BottomNavyBarItem> bottomNavyBarItems = [
+     BottomNavyBarItem(
+      icon:  Icon(Icons.home), title: Text("Home"),activeColor:   Color(0xFFEC6813),
+      inactiveColor:  Colors.grey
+    ),
+     BottomNavyBarItem(
+       icon:  Icon(Icons.favorite), title: Text("Favorite"),activeColor:   Color(0xFFEC6813),
+       inactiveColor:  Colors.grey
+    ),
+    BottomNavyBarItem(
+        icon:  Icon(Icons.shopping_cart), title: Text("Cart"),activeColor:   Color(0xFFEC6813),
+        inactiveColor:  Colors.grey
+    ),
+    BottomNavyBarItem(
+        icon:  Icon(Icons.preview_rounded), title: Text("Favorite"),activeColor:   Color(0xFFEC6813),
+        inactiveColor:  Colors.grey
+    ),
+  ];
+
 
   static List<ProductlistModel> products = [
     ProductlistModel(
