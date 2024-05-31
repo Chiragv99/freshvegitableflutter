@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class AppConstant {
-
+ static const homeIcon = 'assets/vectors/home.svg';
  static  String assestPath = 'assets/images/';
  static  String assestPathIcon = 'assets/icons/';
  static double inputLabelSize = 12.0;
@@ -65,4 +65,26 @@ static var updateRouteStatusReadyToGo = 1 ;
  static var updateRouteStatusStart = 2 ;
  static var updateRouteStatusCompletedTrip = 3 ;
 
+
+
+ static const lambMeat = 'assets/images/lamb_meat.png';
+ static const bellPepper = 'assets/images/bell_pepper.png';
+ static const cabbage = 'assets/images/cabbage.png';
+ static const carrot = 'assets/images/carrot.png';
+ static const cauliflower = 'assets/images/cauliflower.png';
+ static const ginger = 'assets/images/ginger.png';
+ static const pumpkin = 'assets/images/pumpkin.png';
+ static const spinach = 'assets/images/spinach.png';
+ static const tomatoes = 'assets/images/tomatoes.png';
+
+ static const backArrowIcon = 'assets/vectors/back_arrow.svg';
+ static const addIcon = 'assets/vectors/add.svg';
+ static const removeIcon = 'assets/vectors/remove.svg';
+ static const searchIcon = 'assets/vectors/search.svg';
+ static const themeIcon = 'assets/vectors/theme.svg';
+ static const basketIcon = 'assets/vectors/basket.svg';
+ static const cornIcon = 'assets/vectors/corn.svg';
+ static const fireIcon = 'assets/vectors/fire.svg';
+ static const emojiIcon = 'assets/vectors/emoji.svg';
+ static const container = 'assets/vectors/container.svg';
 }

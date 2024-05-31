@@ -3,6 +3,9 @@ import 'package:onlineshoppingsample/category/category_binding.dart';
 import 'package:onlineshoppingsample/category/category_screen.dart';
 import 'package:onlineshoppingsample/screens/address/addaddress/addaddress_binding.dart';
 import 'package:onlineshoppingsample/screens/address/address_map_binding.dart';
+import 'package:onlineshoppingsample/screens/base/base_binding.dart';
+import 'package:onlineshoppingsample/screens/base/base_controller.dart';
+import 'package:onlineshoppingsample/screens/base/base_view.dart';
 import 'package:onlineshoppingsample/screens/cart/cartscreen.dart';
 import 'package:onlineshoppingsample/screens/cart/cartscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen.dart';
@@ -14,6 +17,7 @@ import 'package:onlineshoppingsample/screens/introduction/introduction_page.dart
 import 'package:onlineshoppingsample/screens/productdetail/productdetail_binding.dart';
 import 'package:onlineshoppingsample/screens/search/searchscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_binding.dart';
+import 'package:onlineshoppingsample/screens/vegitable/vegitablelist.dart';
 import '../screens/address/addaddress/add_address.dart';
 import '../screens/address/address_map.dart';
 import '../screens/home/populardeals/populardealsscreen.dart';
@@ -21,6 +25,7 @@ import '../screens/home/vegitable/vegitablescreen.dart';
 import '../screens/productdetail/productdetail_page.dart';
 import '../screens/search/searchscreen.dart';
 import '../screens/splash/splash_screen.dart';
+import '../screens/vegitable/vegitable_list_binding.dart';
 
 class Routes{
   static String ladingscreen = '/';
@@ -34,6 +39,8 @@ class Routes{
   static String popular = '/populardealscreen';
   static String productdetail = '/productdetailpage';
   static String cartscreen = '/cartscreen';
+  static String base = '/baseview';
+  static String vegitableList = '/vegitablelist';
 
   static const INITIAL = '/splash';
 
@@ -92,6 +99,16 @@ class Routes{
         name: cartscreen,
         page: () => CartScreen(),
         binding: CartScreenBinding()
+    ),
+    GetPage(
+        name: base,
+        page: () => BaseView(),
+        binding: BaseBinding()
+    ),
+    GetPage(
+        name: vegitableList,
+        page: () => VegitableList(),
+        binding: VegitableListBindings()
     )
   ];
 }

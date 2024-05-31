@@ -11,7 +11,7 @@ class HomeScreenController extends GetxController{
   }
 
   void redirectToCategory(){
-    Get.toNamed(Routes.category);
+    Get.toNamed(Routes.vegitableList);
     //Get.offNamedUntil(Routes.category);
   }
   void redirectToPopularDealScreen(){

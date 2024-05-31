@@ -23,6 +23,6 @@ class SplashController extends GetxController {
   }
 
   redirectToIntroScreen() {
-    Get.offAndToNamed(Routes.introduction);
+    Get.offAndToNamed(Routes.base);
   }
 }
