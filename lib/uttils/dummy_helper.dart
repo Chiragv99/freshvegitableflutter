@@ -6,6 +6,12 @@ class DummyHelper {
 
   static const _description = 'Ginger is a flowering plant whose rhizome, ginger root or ginger, is widely used as a spice and a folk medicine.';
 
+  static List<Map<String, String>> cards = [
+    {'icon': AppConstant.lotus, 'title': '100%', 'subtitle': 'Organic'},
+    {'icon': AppConstant.calendar, 'title': '1 Year', 'subtitle': 'Expiration'},
+    {'icon': AppConstant.favourites, 'title': '4.8 (256)', 'subtitle': 'Reviews'},
+    {'icon': AppConstant.matches, 'title': '80 kcal', 'subtitle': '100 Gram'},
+  ];
 
   static List<VegitableListModel> products = [
     VegitableListModel(

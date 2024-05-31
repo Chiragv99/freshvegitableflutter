@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/models/vegitablelist_model.dart';
 
+import '../routes/app_routes.dart';
+
 class VegitableListWidget extends StatelessWidget{
   final VegitableListModel vegitableList;
 
@@ -25,7 +27,9 @@ class VegitableListWidget extends StatelessWidget{
         ),
         margin: EdgeInsets.all(10),
         child:   GestureDetector(
-          onTap:  () => {},
+          onTap:  () => {
+            Get.toNamed(Routes.vegitabledetailList, arguments: vegitableList)
+          },
           child: Container(
             decoration: BoxDecoration(
               color: theme.cardColor,

@@ -67,6 +67,14 @@ static var updateRouteStatusReadyToGo = 1 ;
 
 
 
+ static const background = 'assets/images/background.png';
+ static const backgroundDark = 'assets/images/background_dark.png';
+ static const avatar = 'assets/images/avatar.png';
+ static const calendar = 'assets/images/calendar.png';
+ static const lotus = 'assets/images/lotus.png';
+ static const matches = 'assets/images/matches.png';
+ static const favourites = 'assets/images/favourites.png';
+
  static const lambMeat = 'assets/images/lamb_meat.png';
  static const bellPepper = 'assets/images/bell_pepper.png';
  static const cabbage = 'assets/images/cabbage.png';
@@ -76,6 +84,7 @@ static var updateRouteStatusReadyToGo = 1 ;
  static const pumpkin = 'assets/images/pumpkin.png';
  static const spinach = 'assets/images/spinach.png';
  static const tomatoes = 'assets/images/tomatoes.png';
+
 
  static const backArrowIcon = 'assets/vectors/back_arrow.svg';
  static const addIcon = 'assets/vectors/add.svg';
@@ -87,4 +96,5 @@ static var updateRouteStatusReadyToGo = 1 ;
  static const fireIcon = 'assets/vectors/fire.svg';
  static const emojiIcon = 'assets/vectors/emoji.svg';
  static const container = 'assets/vectors/container.svg';
+
 }

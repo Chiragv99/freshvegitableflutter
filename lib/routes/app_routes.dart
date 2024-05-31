@@ -4,10 +4,11 @@ import 'package:onlineshoppingsample/category/category_screen.dart';
 import 'package:onlineshoppingsample/screens/address/addaddress/addaddress_binding.dart';
 import 'package:onlineshoppingsample/screens/address/address_map_binding.dart';
 import 'package:onlineshoppingsample/screens/base/base_binding.dart';
-import 'package:onlineshoppingsample/screens/base/base_controller.dart';
 import 'package:onlineshoppingsample/screens/base/base_view.dart';
 import 'package:onlineshoppingsample/screens/cart/cartscreen.dart';
 import 'package:onlineshoppingsample/screens/cart/cartscreen_binding.dart';
+import 'package:onlineshoppingsample/screens/detail/vegitable_detailscreen.dart';
+import 'package:onlineshoppingsample/screens/detail/vegitabledetail_binding.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen.dart';
 import 'package:onlineshoppingsample/screens/home/homescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_binding.dart';
@@ -41,6 +42,8 @@ class Routes{
   static String cartscreen = '/cartscreen';
   static String base = '/baseview';
   static String vegitableList = '/vegitablelist';
+  static String vegitabledetailList = '/vegitabledetailscreen';
+
 
   static const INITIAL = '/splash';
 
@@ -109,6 +112,11 @@ class Routes{
         name: vegitableList,
         page: () => VegitableList(),
         binding: VegitableListBindings()
+    ),
+    GetPage(
+        name: vegitabledetailList,
+        page: () => VegitableDetailScreen(),
+        binding: VegitableDetailBinding()
     )
   ];
 }

@@ -28,6 +28,6 @@ class HomeScreenController extends GetxController{
   }
 
   void redirectToProductDetailScreen(){
-    Get.toNamed(Routes.productdetail);
+    Get.toNamed(Routes.vegitabledetailList);
   }
 }
