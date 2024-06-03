@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_controller.dart';
+import 'package:onlineshoppingsample/widget/common_widget.dart';
 import '../../../constants/colors.dart';
 import '../../../widget/custom_app_bar.dart';
 import '../homescreen.dart';
@@ -14,22 +15,11 @@ class PopularDealScreen extends GetView<PopularController>{
   @override
   Widget build(BuildContext context) {
      return Scaffold(
+       appBar: topHearWithSearch(context,'Popular Deals',true),
        body: Stack(
          children: [
            SafeArea(child: Column(
              children: [
-               CustomAppBar(
-                 'Popular Deals',
-                 [
-                   Icon(
-                     Icons.search,
-                     color: kPrimaryGreen,
-                   ),
-                   SizedBox(
-                     width: ScreenUtil().setSp(16),
-                   ),
-                 ],
-               ),
                CustomStaggerGrid(),
              ],
            ))

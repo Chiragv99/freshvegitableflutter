@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/src/storage_impl.dart';
 import '../uttils/appConstant.dart';
 import '../uttils/theme_color.dart';
+import 'custom_icon_back_button.dart';
 
 InputDecoration inputDecorationWithBorder(getHint) {
   return InputDecoration(
@@ -400,6 +402,45 @@ AppBar topHeaderWithBackIcon(String title, {bool isHideBackButton = false}) {
           labelTextRegular(title, 16, ThemeColor.darkTextColor)
         ],
       ));
+}
+AppBar topHearWithSearch(BuildContext context,String title, bool showSearch,{bool isHideBackButton = false}){
+  final theme = context.theme;
+  return AppBar(
+    automaticallyImplyLeading: false,
+    title:Padding(
+  padding: EdgeInsets.symmetric(horizontal: 8.w),
+  child: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+  CustomIconBackButton(
+  onPressed: () => Get.back(),
+  backgroundColor: theme.scaffoldBackgroundColor,
+  borderColor: theme.dividerColor,
+  icon: SvgPicture.asset(
+  AppConstant.backArrowIcon,
+  fit: BoxFit.none,
+  color: theme.appBarTheme.iconTheme?.color,
+  ),
+  ),
+  Text(title,style: theme.textTheme.headline3!.copyWith(
+  fontSize: ScreenUtil().setSp(12)
+  )),
+  Visibility(
+      visible: showSearch,
+      child:
+  CustomIconBackButton(
+  onPressed: (){},
+  backgroundColor: theme.scaffoldBackgroundColor,
+  borderColor: theme.dividerColor,
+  icon: SvgPicture.asset(
+  AppConstant.searchIcon,
+  fit: BoxFit.none,
+  color: theme.appBarTheme.iconTheme?.color,
+  )))
+  ],
+  ),
+  ),
+  );
 }
 // this is where you would do your fullscreen loading
 startLoading()  {

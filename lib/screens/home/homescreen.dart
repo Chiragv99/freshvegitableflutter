@@ -1,5 +1,6 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
@@ -41,13 +42,6 @@ class HomeScreen extends GetView<HomeScreenController>{
       CategoryModel("Milks & Egg", '${AppConstant.assestPath}banner5.jpeg', kAccentPurple),
       CategoryModel("Vegetables", '${AppConstant.assestPath}banner8.png', kAccentGreen),
       CategoryModel("Fruits", '${AppConstant.assestPath}banner5.jpeg', kAccentRed),
-    ];
-
-    List<Widget> screens = [
-      HomeScreen(),
-      CartScreen(),
-      CartScreen(),
-      CartScreen(),
     ];
     return Scaffold(
         bottomNavigationBar: BottomNavyBar(
@@ -92,7 +86,7 @@ class HomeScreen extends GetView<HomeScreenController>{
                            }, child: const Text('See All'))
                          ],
                        )),
-                      Padding(padding: EdgeInsets.all(10),child:
+                      Padding(padding: const EdgeInsets.all(10),child:
                       GetBuilder(builder: (ProductController controller){
                         return PopularDealsWidget(
                             items: controller.filteredProducts,
@@ -160,6 +154,9 @@ class IndiDealCard extends StatelessWidget {
                     ScreenUtil().setSp(8.0),
                   ),
                 ),
+              ).animate().fade().scale(
+                  duration: 800.ms,
+                  curve: Curves.fastOutSlowIn
               ),
             ),
             Expanded(
@@ -172,6 +169,9 @@ class IndiDealCard extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       fontSize: ScreenUtil().setSp(10)
                     ),
+                  ).animate().fade().scale(
+                      duration: 800.ms,
+                      curve: Curves.fastOutSlowIn
                   ),
                   Text(
                     '200gr',
@@ -180,6 +180,9 @@ class IndiDealCard extends StatelessWidget {
                       color: kTextColorAccent,
 
                     ),
+                  ).animate().fade().scale(
+                      duration: 800.ms,
+                      curve: Curves.fastOutSlowIn
                   ),
                   Row(
                     children: [
@@ -189,6 +192,9 @@ class IndiDealCard extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline5!.copyWith(
                             fontSize: ScreenUtil().setSp(8)
                           ),
+                        ).animate().fade().scale(
+                            duration: 800.ms,
+                            curve: Curves.fastOutSlowIn
                         ),
                       ),
                       RawMaterialButton(
@@ -210,6 +216,9 @@ class IndiDealCard extends StatelessWidget {
                           Icons.add,
                           color: Colors.white,
                         ),
+                      ).animate().fade().scale(
+                          duration: 800.ms,
+                          curve: Curves.fastOutSlowIn
                       )
                     ],
                   )
@@ -281,7 +290,7 @@ class DealsTab extends StatelessWidget {
               return GestureDetector(
                 onTap: (){
                   controller.redirectToProductDetailScreen();
-                  print("Index"+ index.toString());
+                  print("Index$index");
                 },
                 child: DealCard(categoriesBanner[index].catIcon),);
             }))
@@ -292,9 +301,9 @@ class DealsTab extends StatelessWidget {
 class HomeAppBar extends StatelessWidget{
   HomeScreenController controller;
    HomeAppBar({
-    Key? key,
+    super.key,
     required this.controller
-  }) : super(key: key,);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -325,7 +334,7 @@ class HomeAppBar extends StatelessWidget{
            onTap: (){
              controller.redirectToSearchScreen();
            },
-           child:  Icon(
+           child:  const Icon(
              Icons.search,
              color: kPrimaryGreen,
            ),

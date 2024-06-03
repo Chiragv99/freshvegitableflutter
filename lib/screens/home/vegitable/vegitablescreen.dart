@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:onlineshoppingsample/models/vegitable_model.dart';
 import 'package:onlineshoppingsample/screens/home/vegitable/vegitablescreen_controller.dart';
 import 'package:onlineshoppingsample/uttils/appConstant.dart';
 import 'package:onlineshoppingsample/uttils/custom_theme.dart';
+import 'package:onlineshoppingsample/widget/common_widget.dart';
 import '../../../constants/colors.dart';
-import '../../../widget/customappbarverge.dart';
 
 class vegitableScreen extends GetView<VegitableController>{
-  vegitableScreen({Key? key}) : super(key: key);
+  const vegitableScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +27,14 @@ class vegitableScreen extends GetView<VegitableController>{
       VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",true),
       VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
       VegitableModel('Lady Finger','${AppConstant.assestPath}banner7.jpeg',"60","18",false),
-
-
     ];
    return Scaffold(
+     appBar: topHearWithSearch(context,"Featured Vegetable List",true),
      body: SafeArea(
          child:
          Column(
            children: [
-             CustomAppBarVege(),
+            // CustomAppBarVege(),
              SizedBox(
                height: ScreenUtil().setSp(20),
              ),
@@ -66,7 +66,7 @@ class ListCard extends StatelessWidget{
   final String  ?vegitableDiscount;
   final bool ? isDiscount;
 
-  const ListCard({this.vegitableName, this.vegitableIcon,this.vegitablePrice,this.vegitableDiscount,this.isDiscount});
+  const ListCard({super.key, this.vegitableName, this.vegitableIcon,this.vegitablePrice,this.vegitableDiscount,this.isDiscount});
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +90,10 @@ class ListCard extends StatelessWidget{
                   ScreenUtil().setSp(5),
                  ),
                ),
+             ).animate().fade().slideX(
+               duration: 300.ms,
+               begin:  - 1,
+               curve: Curves.easeInSine,
              ),
            ),
            SizedBox(
@@ -109,11 +113,15 @@ class ListCard extends StatelessWidget{
                          shape: StadiumBorder(),
                          color: kAlertColor,
                        ),
-                       child: Text(
+                       child: const Text(
                          'Disc 40%',
                          style: TextStyle(
                            color: Colors.white,
                          ),
+                       ).animate().fade().slideX(
+                         duration: 300.ms,
+                         begin: -1,
+                           curve: Curves.easeInSine
                        ),
                      ),
                    Text(
@@ -122,6 +130,10 @@ class ListCard extends StatelessWidget{
                        fontWeight: FontWeight.w600,
                        fontSize:  ScreenUtil().setSp(10),
                      ),
+                   ).animate().fade().slideX(
+                       duration: 300.ms,
+                       begin: -1,
+                       curve: Curves.easeInSine
                    ),
                    Text(
                      '200gr',
@@ -129,6 +141,10 @@ class ListCard extends StatelessWidget{
                        fontSize:  ScreenUtil().setSp(8),
                        color: kTextColorAccent,
                      ),
+                   ).animate().fade().slideX(
+                       duration: 300.ms,
+                       begin: -1,
+                       curve: Curves.easeInSine
                    ),
                  ],
                ),
@@ -141,19 +157,27 @@ class ListCard extends StatelessWidget{
                children: [
                  if (isDiscount!)
                    Text(
-                     '\₹' + vegitableDiscount!,
-                     style: TextStyle(
+                     '\₹${vegitableDiscount!}',
+                     style: const TextStyle(
                        color: Colors.red,
                        decoration: TextDecoration.lineThrough,
                      ),
+                   ).animate().fade().slideX(
+                       duration: 300.ms,
+                       begin: -1,
+                       curve: Curves.easeInSine
                    ),
                  Text(
-                   '\₹' + vegitablePrice!,
+                   '\₹${vegitablePrice!}',
                    style: TextStyle(
                      color: Colors.green.shade400,
                      fontSize: ScreenUtil().setSp(14),
                      fontWeight: FontWeight.w700,
                    ),
+                 ).animate().fade().slideX(
+                     duration: 300.ms,
+                     begin: -1,
+                     curve: Curves.easeInSine
                  ),
                ],
              ) ,

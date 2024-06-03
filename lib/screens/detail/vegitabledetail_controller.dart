@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../models/vegitablelist_model.dart';
+import '../../routes/app_routes.dart';
 
 class VegitableDetailController extends GetxController{
 
@@ -12,6 +13,9 @@ class VegitableDetailController extends GetxController{
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+  }
 
+  redirectToCartScreen(){
+    Get.toNamed(Routes.cartscreen);
   }
 }
