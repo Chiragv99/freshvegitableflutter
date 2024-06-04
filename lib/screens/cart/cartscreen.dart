@@ -45,7 +45,7 @@ class CartScreen extends GetView<CartScreenController>{
                   child: AddToCardWidget(
                     text: 'Purchase Now',
                     onPressed: () => {
-
+                     controller.redirectToOrderScreen()
                     },
                     fontSize: 16.sp,
                     radius: 50.r,

@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,23 +45,15 @@ class HomeScreen extends GetView<HomeScreenController>{
       CategoryModel("Fruits", '${AppConstant.assestPath}banner5.jpeg', kAccentRed),
     ];
     return Scaffold(
-        bottomNavigationBar: BottomNavyBar(
-          itemCornerRadius: 10,
-          selectedIndex: 0,
-          items: AppData.bottomNavyBarItems
-              .map(
-                (item) => BottomNavyBarItem(
-              icon: item.icon,
-              title: item.title,
-              activeColor: item.activeColor,
-              inactiveColor: item.activeColor,
-            ),
-          )
-              .toList(),
-          onItemSelected: (currentIndex) {
-
-          },
-        ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.purple,
+        items: [
+          Icon(Icons.home, size: 30),
+          Icon(Icons.shopping_cart, size: 30),
+          Icon(Icons.person, size: 30),
+          Icon(Icons.settings, size: 30)
+        ],
+      ),
         body:  SafeArea(
             child:
              Column(

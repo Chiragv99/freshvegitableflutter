@@ -15,6 +15,8 @@ import 'package:onlineshoppingsample/screens/home/populardeals/populardeals_bind
 import 'package:onlineshoppingsample/screens/home/vegitable/vegitablescreen_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_binding.dart';
 import 'package:onlineshoppingsample/screens/introduction/introduction_page.dart';
+import 'package:onlineshoppingsample/screens/orderpage/orderpage_binding.dart';
+import 'package:onlineshoppingsample/screens/orderpage/orderpage_screen.dart';
 import 'package:onlineshoppingsample/screens/productdetail/productdetail_binding.dart';
 import 'package:onlineshoppingsample/screens/search/searchscreen_binding.dart';
 import 'package:onlineshoppingsample/screens/splash/splash_binding.dart';
@@ -43,7 +45,7 @@ class Routes{
   static String base = '/baseview';
   static String vegitableList = '/vegitablelist';
   static String vegitabledetailList = '/vegitabledetailscreen';
-
+  static String orderscreen = '/orderpagescreen';
 
   static const INITIAL = '/splash';
 
@@ -117,6 +119,11 @@ class Routes{
         name: vegitabledetailList,
         page: () => VegitableDetailScreen(),
         binding: VegitableDetailBinding()
+    ),
+    GetPage(
+        name: orderscreen,
+        page: () => OrderPageScreen(),
+        binding: OrderPageBinding()
     )
   ];
 }
